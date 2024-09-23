@@ -1,0 +1,16 @@
+<header class="app-header">
+  <nav>
+    <button class="menu-toggle" (click)="toggleMenu()" [ngClass]="{'rotate': isMenuOpen}">&#9776;</button>
+    <ul class="nav-links" [ngClass]="{'active': isMenuOpen}">
+      <li *ngIf="isAuth"><a routerLink="/">Home</a></li>
+      <li *ngIf="isAuth"><a routerLink="/users">Users</a></li>
+      <li *ngIf="!isAuth"><a routerLink="/login">Login</a></li>
+      <li *ngIf="!isAuth"><a routerLink="/signup">Sign Up</a></li>
+      <li *ngIf="isAuth"><button (click)="logout()">Logout</button></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="content" [ngClass]="{'menu-open': isMenuOpen}">
+  <router-outlet></router-outlet>
+</div>

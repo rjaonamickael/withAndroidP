@@ -1,0 +1,29 @@
+<div class="users-list">
+  <div class="header">
+    <h2>List of Users</h2>
+    <button mat-raised-button color="primary" (click)="searchUser()" class="search-button" [disabled]="selectedUser == null">
+      Search
+    </button>
+  </div>
+
+  <div *ngIf="users.length > 0; else noUsers">
+    <table mat-table [dataSource]="users" class="mat-elevation-z8">
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let user"> {{ user.email }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let user"> {{ user.name }} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="['email', 'name']"></tr>
+      <tr mat-row *matRowDef="let user; columns: ['email', 'name'];" (click)="selectUser(user)" class="clickable-row" [class.selected]="user === selectedUser"></tr>
+    </table>
+  </div>
+
+  <ng-template #noUsers>
+    <p>No users found.</p>
+  </ng-template>
+</div>

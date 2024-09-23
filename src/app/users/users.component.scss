@@ -1,0 +1,58 @@
+.users-list {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: #f4f5f7;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.search-button {
+  margin-bottom: auto;
+  margin-left: auto;
+  display: block;
+}
+
+h2 {
+  margin-right: auto;
+  //text-align: center;
+  color: #3f51b5;
+  margin-bottom: 1.5rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    background-color: #3f51b5;
+    color: #fff;
+    padding: 0.75rem;
+  }
+
+  td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #ccc;
+  }
+}
+
+
+.clickable-row {
+  cursor: pointer;
+  transition: background-color 0.1s;
+}
+
+.clickable-row:hover {
+  background-color: #f0f0f0; /* Change le fond au survol */
+}
+
+.selected {
+  background-color: #a2caf5; /* Couleur de fond lorsque la ligne est sélectionnée */
+}

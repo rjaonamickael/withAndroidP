@@ -1,0 +1,107 @@
+$background_color: #333;
+$color_navigation_link: #fff;
+$color_navigation_link_hover: #ddd;
+
+.app-header {
+  
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  nav {
+    
+    .menu-toggle {
+      
+      display: none;
+      font-size: 2rem;
+      color: $color_navigation_link;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      
+
+      &:hover {
+        color: $color_navigation_link_hover;
+      }
+
+      &.rotate {
+        transform: rotate(90deg); // Applique la rotation de 90°
+      }
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+
+      li {
+        a {
+          color: $color_navigation_link;
+          text-decoration: none;
+          font-weight: bold;
+          font-size: 1.1rem;
+          padding: 0.5rem 1rem;
+          border-radius: 5px;
+
+          &:hover {
+            color: $color_navigation_link_hover;
+          }
+        }
+
+        button {
+          color: $color_navigation_link;
+          border-radius: 15px;
+          background-color: orangered;
+          height: 30px;
+          border: none;
+          width: 100px;
+          font-size: 1.1rem;
+        }
+
+        button:hover {
+          cursor: pointer;
+          background-color: crimson;
+        }
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        position: absolute;
+        top: 57px;
+        right: 0;
+        background-color: $background_color;
+        width: 100%;
+        padding: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+    
+      .nav-links.active {
+        display: flex;
+      }
+    
+      .nav-links li {
+        margin-left: 7%; 
+      }
+    
+      .menu-toggle {
+        display: block;
+      }
+    }
+  }
+}
+
+.content {
+  transition: margin-top 0.3s ease; // Animation douce
+
+  &.menu-open {
+    margin-top: 150px; // Ajustez cette valeur en fonction de la hauteur du menu
+  }
+}
